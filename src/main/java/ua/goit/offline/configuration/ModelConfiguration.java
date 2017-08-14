@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+//должен быть такой hibernate, которій в pom
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -52,8 +53,11 @@ public class ModelConfiguration {
     @Bean
     public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
         LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
-        bean.setDataSource(dataSource);
-        bean.setPackagesToScan("ua.goit.offline.entity");
+
+        bean.setPackagesToScan("ua.goit.offline.entity");//где бині хранятся
+        bean.setDataSource(dataSource);//инжектим dataSource
+
+        //добавляем спецефические веши
         Properties properties = new Properties();
         properties.put("hibernate.dialect", dialect);
         bean.setHibernateProperties(properties);

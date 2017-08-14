@@ -15,7 +15,7 @@ import java.util.List;
 public class MessageService {
 
     @Autowired
-    private MessageDao messageDao;
+    private final MessageDao messageDao;
 
     public MessageService(MessageDao messageDao) {
         this.messageDao = messageDao;

@@ -15,7 +15,7 @@ import java.util.List;
 public class ChatService {
 
     @Autowired
-    private ChatDao chatDao;
+    private final ChatDao chatDao;
 
     public ChatService(ChatDao chatDao) {
         this.chatDao = chatDao;

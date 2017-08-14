@@ -23,46 +23,50 @@ public class TestCharApplication {
             MessageService messageService = context.getBean(MessageService.class);
 
 
-            User user = userService.getById("test");
-            if (user == null) {
-                user = new User();
-                user.setLogin("test");
-                user.setPassword("test");
-                user.setUsername("test");
-                userService.save(user);
-            }
-            userService.getAll().forEach(System.out::println);
+//            User user = userService.getById("test");
+//            if (user == null) {
+//                user = new User();
+//                user.setLogin("test");
+//                user.setPassword("test");
+//                user.setUsername("test");
+//                userService.save(user);
+//            }
+//            userService.getAll().forEach(System.out::println);
 //            userService.remove(user);
 //            System.out.println("--------------------");
 //            userService.getAll().forEach(System.out::println);
 
-            Chat chat = chatService.getById("public");
-            if (chat == null) {
-                chat = new Chat();
-                chat.setName("public");
-                chat.setDescription("This is public chat");
-                chatService.save(chat);
-            }
-            chatService.getAll().forEach(System.out::println);
+//            Chat chat = chatService.getById("public");
+//            if (chat == null) {
+//                chat = new Chat();
+//                chat.setName("public");
+//                chat.setDescription("This is public chat");
+//                chatService.save(chat);
+//            }
+//            chatService.getAll().forEach(System.out::println);
 //            chatService.remove(chat);
 //            System.out.println("----------------------");
 //            chatService.getAll().forEach(System.out::println);
 
 
-            Messages message = messageService.getById(1L);
-            if (message == null) {
-                message = new  Messages();
-                message.setChat(chat);
-                message.setUser(user);
-                message.setText("This is first message");
-                messageService.save(message);
-            }
-            messageService.getAll().forEach(System.out::println);
+//            Messages message = messageService.getById(1L);
+//            if (message == null) {
+//                message = new  Messages();
+//                message.setChat(chat);
+//                message.setUser(user);
+//                message.setText("This is first message");
+//                messageService.save(message);
+//            }
+//            messageService.getAll().forEach(System.out::println);
 //            messageService.remove(message);
 //            System.out.println("----------------------");
 //            messageService.getAll().forEach(System.out::println);
 
-
+//            User user1 = new User();
+//            user1.setLogin("testUpdated");
+//            user1.setPassword("testUpdated");
+//            user1.setUsername("test");
+//            userService.update(user1);
 
         }
     }

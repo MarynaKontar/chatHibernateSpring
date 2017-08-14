@@ -15,7 +15,7 @@ import java.util.List;
 public class UserService {
 
     @Autowired //говорю Spring, чтобы искал бин типа имплементация UserDao (в данном случае это будет UserDaoImpl.java)
-    private UserDao userDao;
+    private final UserDao userDao;
 
     public UserService(UserDao userDao) {
         this.userDao = userDao;
