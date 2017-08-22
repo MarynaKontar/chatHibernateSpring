@@ -61,8 +61,10 @@ CREATE TABLE `CHAT`.`messages` (
 CREATE TABLE `CHAT`.`user_groups` (
  `group_id` int(11) NOT NULL,
  `user_login` varchar(45) NOT NULL,
+ `role` int(11) NOT NULL DEFAULT 3,
  PRIMARY KEY (`group_id`,`user_login`),
  KEY `FK_UG_USER_LOGIN_idx` (`user_login`),
  CONSTRAINT `FK_UG_GROUP_ID` FOREIGN KEY (`group_id`) REFERENCES `CHAT`.`groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
  CONSTRAINT `FK_UG_USER_LOGIN` FOREIGN KEY (`user_login`) REFERENCES `CHAT`.`users` (`LOGIN`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

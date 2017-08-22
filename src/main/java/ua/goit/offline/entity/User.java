@@ -1,10 +1,8 @@
 package ua.goit.offline.entity;
 
 import java.sql.Timestamp;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.Set;
+import javax.persistence.*;
 
 /**
  * User entity
@@ -20,6 +18,11 @@ public class User {
   private String password;
   @Column(name = "REGISTRATION_DATE")
   private Timestamp registrationDate;
+
+  @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+  @JoinTable(name = "user_groups", joinColumns = @JoinColumn(name = "user_login"),
+          inverseJoinColumns =@JoinColumn(name = "group_id"))
+  private Set<Group> groups;
 
   public String getLogin() {
     return login;
@@ -51,6 +54,14 @@ public class User {
 
   public void setRegistrationDate(Timestamp registrationDate) {
     this.registrationDate = registrationDate;
+  }
+
+  public Set<Group> getGroups() {
+    return groups;
+  }
+
+  public void setGroups(Set<Group> groups) {
+    this.groups = groups;
   }
 
   @Override

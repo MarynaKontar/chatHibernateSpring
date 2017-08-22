@@ -26,11 +26,12 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
 //                .mvcMatchers("/*")//только какие-то пути проверяются на пароль и пользователя
+                .antMatchers("/registration","/login").not().authenticated()
                 .anyRequest()
                 .authenticated()//хотим чтобі все user-ов проверяли
                 .and()
                 .formLogin()//базовая форма на логин пароль будет выпадать
 //        .and().httpBasic()//можно другую форму использовать
-                .and().csrf();
+                .and().csrf().disable();
     }
 }

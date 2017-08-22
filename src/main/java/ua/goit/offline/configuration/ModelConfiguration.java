@@ -60,6 +60,8 @@ public class ModelConfiguration {
         //добавляем спецефические веши
         Properties properties = new Properties();
         properties.put("hibernate.dialect", dialect);
+        properties.put("hibernate.show_sql",true);
+        properties.put("hibernate.format_sql",true);
         bean.setHibernateProperties(properties);
         return bean;
     }
